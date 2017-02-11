@@ -16,7 +16,10 @@ public class AlgorithmRunner {
         switch (toRun.getAlgorithmToRun()) {
             case MERGE_SORT:
                 MergeSorter ms = new MergeSorter();
-                ms.run(toRun.getInput());
+                ms.run(toRun.getListInput());
+                break;
+            case STRING_UNIQUE:
+                UniqueString uniqueString = new UniqueString(toRun.getStringInput());
         }
     }
 
@@ -44,43 +47,56 @@ public class AlgorithmRunner {
 
         List<Integer> inputList = new ArrayList<>();
         //index 0 is ignored as it does not contain input
-        for(int i = 1; i < inputs.length; i++){
+        for (int i = 1; i < inputs.length; i++) {
             inputList.add((Integer.parseInt(inputs[i])));
         }
 
-        readyAlg.setInput(inputList);
+        readyAlg.setListInput(inputList);
     }
 
+}
 
+class ReadyAlgorithm {
+    Algorithms algorithmToRun;
+    List listInput;
 
-        private class ReadyAlgorithm {
-        Algorithms algorithmToRun;
-        List input;
+    String stringInput;
 
-        public ReadyAlgorithm() {
+    public ReadyAlgorithm() {
 
-        }
+    }
 
-        public ReadyAlgorithm(Algorithms algorithmToRun, List input) {
-            this.algorithmToRun = algorithmToRun;
-            this.input = input;
-        }
+    public ReadyAlgorithm(Algorithms algorithmToRun, String input) {
+        this.algorithmToRun = algorithmToRun;
+    }
 
-        public Algorithms getAlgorithmToRun() {
-            return algorithmToRun;
-        }
+    public ReadyAlgorithm(Algorithms algorithmToRun, List input) {
+        this.algorithmToRun = algorithmToRun;
+        this.listInput = input;
+    }
 
-        public void setAlgorithmToRun(Algorithms algorithmToRun) {
-            this.algorithmToRun = algorithmToRun;
-        }
+    public Algorithms getAlgorithmToRun() {
+        return algorithmToRun;
+    }
 
-        public List getInput() {
-            return input;
-        }
+    public void setAlgorithmToRun(Algorithms algorithmToRun) {
 
-        public void setInput(List input) {
-            this.input = input;
-        }
+    }
+
+    public List getListInput() {
+        return listInput;
+    }
+
+    public void setListInput(List listInput) {
+        this.listInput = listInput;
+    }
+
+    public String getStringInput() {
+        return stringInput;
+    }
+
+    public void setStringInput(String stringInput) {
+        this.stringInput = stringInput;
     }
 }
 

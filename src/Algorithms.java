@@ -6,5 +6,6 @@ public enum Algorithms {
     QUICK_SORT,
     HEAP_SORT,
     DJIKSTRAS,
-    BELLMAN_FORD
+    BELLMAN_FORD,
+    STRING_UNIQUE
 }
